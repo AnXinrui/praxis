@@ -1,0 +1,16 @@
+# 参考配置
+spring:
+  mail:
+    host: smtp.163.com #SMTP服务器地址
+    username: aaa #登陆账号
+    password: 33vp #登陆密码（或授权码）
+    # 使用的协议
+    protocol: smtps
+    # 默认编码
+    default-encoding: UTF-8
+    properties:
+      from: aaa@163.com #邮件发信人（即真实邮箱）
+
+nick: xxx
+apiKey:
+  dailySentence: 9sxxxxdfDjxUoFC6oiC8k0Y
