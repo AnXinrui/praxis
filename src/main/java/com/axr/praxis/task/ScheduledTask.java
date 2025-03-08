@@ -1,23 +1,18 @@
-package com.axr.praxis;
+package com.axr.praxis.task;
 
 import com.axr.praxis.common.Constants;
 import com.axr.praxis.domain.dto.MailInfoDto;
 import com.axr.praxis.service.ApiService;
 import com.axr.praxis.service.MailService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-/**
- * @description  随便测测
- * @author xinrui.an
- * @date 2025/03/07
- */
-@SpringBootTest
-class CommonTest {
+@Component
+public class ScheduledTask {
 
     @Resource
     private MailService mailService;
@@ -26,26 +21,10 @@ class CommonTest {
     private ApiService apiService;
 
     @Value("${to[0]}")
-    String to;
+    private String to;
 
-    @Test
-    void sendMailTest() {
-        MailInfoDto mailInfoDto = new MailInfoDto();
-        mailInfoDto.setTo(to);
-        mailInfoDto.setSubject("Test Subject");
-        mailInfoDto.setText("Test Text");
-
-        mailService.sendMail(mailInfoDto);
-    }
-
-    @Test
-    void dailySentenceTest() throws Exception {
-        String dailySentence = apiService.getDailySentence();
-        System.out.println(dailySentence);
-    }
-
-    @Test
-    void testHTML() throws JsonProcessingException {
+    @Scheduled(cron = "0 0 9 * * ? ")
+    public void dailySentence() throws JsonProcessingException {
         String text = Constants.DAILY_SENTENCE_TEMPLATE.replace("{{content}}", apiService.getDailySentence());
         MailInfoDto mailInfoDto = MailInfoDto.builder()
                 .to(to)
