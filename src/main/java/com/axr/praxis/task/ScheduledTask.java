@@ -21,7 +21,7 @@ public class ScheduledTask {
     private ApiService apiService;
 
     @Value("${to[0]}")
-    private String to;
+    private String[] to;
 
     @Scheduled(cron = "0 0 9 * * ? ")
     public void dailySentence() throws JsonProcessingException {

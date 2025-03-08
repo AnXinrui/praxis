@@ -13,4 +13,6 @@ spring:
 
 nick: xxx
 apiKey:
-  dailySentence: 9sxxxxdfDjxUoFC6oiC8k0Y
+  dailySentence: 9sxxxxdfDjxUoFC6oiC8k0Y # 需要可联系作者
+to:
+  - aaa@qq.com, 222@qq.com

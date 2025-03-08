@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
+import java.util.Arrays;
 
 /**
  * @description 邮件服务
@@ -46,7 +47,7 @@ public class MailService {
 
             // 发送
             javaMailSender.send(message);
-            log.info("to {} , 邮件发送成功!", dto.getTo());
+            log.info("to {} , 邮件发送成功!", Arrays.toString(dto.getTo()));
         } catch (Exception e) {
             log.error("邮件发送失败！", e);
         }

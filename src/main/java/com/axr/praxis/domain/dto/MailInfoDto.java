@@ -22,7 +22,7 @@ public class MailInfoDto implements Serializable {
     /**
      * 收件人
      */
-    String to;
+    String[] to;
 
     /**
      * 主题

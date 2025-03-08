@@ -26,7 +26,7 @@ class CommonTest {
     private ApiService apiService;
 
     @Value("${to[0]}")
-    String to;
+    String[] to;
 
     @Test
     void sendMailTest() {
