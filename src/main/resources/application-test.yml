@@ -9,7 +9,17 @@ spring:
     # 默认编码
     default-encoding: UTF-8
     properties:
-      from: aaa@163.com #邮件发信人（即真实邮箱）
+      mail:
+        smtp:
+          socketFactory:
+            class=javax:
+              net:
+                ssl:
+                  SSLSocketFactory:
+            port: 465
+          auth=true:
+      # 邮件发信人（即真实邮箱）
+      from: xinruian512@163.com
 
 nick: xxx
 apiKey:
